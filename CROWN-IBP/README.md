@@ -35,9 +35,3 @@ Note that, in the paper, we report attack errors, but here, we the report succes
 | 8 large models | 2   |     |      |     | 
 | 9 small models | 8   |     |      |     | 
 | 8 large models | 8   |     |      |     | 
-
-
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
