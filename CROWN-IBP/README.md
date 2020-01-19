@@ -29,9 +29,9 @@ The following shows the min, mean and max attack success rate for each set of mo
 Note that, in the paper, we report attack errors, but here, we the report success rate. (i.e. the sum of the numbers from here and paper should be 100%). 
 
 
-| Set of models  | Eps | Min | Mean | Max |
-| -------------  | --- | --- | ---- | --- |
-| 9 small models | 2   |     |      |     | 
-| 8 large models | 2   |     |      |     | 
-| 9 small models | 8   |     |      |     | 
-| 8 large models | 8   |     |      |     | 
+| Set of models  | Eps | Min   | Mean  | Max   |
+| -------------  | --- | ---   | ----  | ---   |
+| 9 small models | 2   | 47.93 | 40.16 | 28.23 |
+| 8 large models | 2   | 47.63 | 44.83 | 42.13 |
+| 9 small models | 8   | 34.84 | 31.58 | 28.83 |
+| 8 large models | 8   | 33.24 | 30.95 | 28.00 | 
