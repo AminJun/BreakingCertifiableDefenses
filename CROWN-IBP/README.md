@@ -17,7 +17,8 @@ Uncomment them before installing the requirements if you are using CUDA9.
 Otherwise, keep them commented and see [official pytorch installation](https://pytorch.org/get-started/locally/) for more details. 
 # Run
 To reproduce the results in the [paper](https://openreview.net/forum?id=HJxdTxHYvB), simply run the `run.sh` runner file. 
-The runner at first, downloads the pretrained models from the [official repository for pretrained models from Huan Zhangs website](https://download.huan-zhang.com/models/crown-ibp/models_crown-ibp.tar.gz). Simply, run:
+The runner at first, downloads the pretrained models from the [official repository for pretrained models from Huan Zhang's website](https://download.huan-zhang.com/models/crown-ibp/models_crown-ibp.tar.gz).
+ Simply, run:
 ```
 source run.sh &
 ```
