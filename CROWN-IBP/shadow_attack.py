@@ -64,7 +64,7 @@ def get_args(read_input: bool = False, duplicate_rgb: bool = False):
     if read_input:
         return [float(input(var + '\n')) for var in ['tv_eps (0.2)', 'tv_lam (0.3)', 'reg_lam(1.0)']]
     if duplicate_rgb:
-        return [200.5, 0.000009, 0.024]
+        return [200.5, 0.000009, 0.02]
     return [0.2, 0.0, 0.0, 0.0001]
 
 
