@@ -23,3 +23,13 @@ The runner at first, downloads the pretrained models from the [official reposito
 source run.sh &
 ```
 
+# Results
+After runnnig the `run.sh`, you should be able to regenerate the results appeared in the paper. 
+The following shows the min, mean and max attack success rate for each set of models. 
+Note that, in the paper, we report attack errors, but here, we the report success rate. (i.e. the sum of the numbers from here and paper should be 100%). 
+| Set of models | Eps | Min | Mean | Max |
+| ------------- | --- | --- | ---- | --- |
+| 9 small models | 2 | | | | 
+| 8 large models | 2 | | | | 
+| 9 small models | 8 | | | | 
+| 8 large models | 8 | | | | 
