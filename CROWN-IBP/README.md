@@ -8,7 +8,7 @@ Firstly, install the required libraries from `requirements.txt`. You may simply 
 ```
 pip install -r requirements.txt 
 ``` 
-Note that in the requirements.txt, two following lines have been commented:
+Note that in the `requirements.txt`, two following lines have been commented:
 ```
 #torch==1.3.1+cu92
 #torchvision==0.4.2+cu92
