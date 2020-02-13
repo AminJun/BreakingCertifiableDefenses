@@ -3,7 +3,7 @@ import torch.backends.cudnn as cudnn
 from torchvision.models.resnet import resnet50
 
 from archs.cifar_resnet import resnet as resnet_cifar
-from .datasets import get_normalize_layer
+from RandomizedSmoothing.datasets import get_normalize_layer
 
 # resnet50 - the classic ResNet-50, sized for ImageNet
 # cifar_resnet20 - a 20-layer residual network sized for CIFAR
