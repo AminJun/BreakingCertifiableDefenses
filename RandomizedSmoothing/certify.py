@@ -47,7 +47,6 @@ def main():
                                      sim_lam=args.s_lam, batch_size=400)
             adv_pred, adv_rad = smoothed_classifier.certify(adv_x, args.N0, 2 * args.N0, args.alpha, args.batch)
             adv_suc = (adv_pred != label) and (adv_pred != -1) and (nat_pred != -1)
-            success = adv_suc and (adv_rad >= nat_rad)
             adv_rad = adv_x if adv_suc else -adv_rad
 
             if adv_rad > best_rad:
@@ -58,7 +57,7 @@ def main():
         figure.save(best_image, i, 'best={}'.format(best_target))
         figure.save(first_x, i, 'natural')
         best_pred, best_rad = smoothed_classifier.certify(best_image, args.N0, args.N, args.alpha, args.batch)
-        j_print(i, label, best_target, nat_rad, best_rad, success)
+        j_print(i, label, best_target, nat_rad, best_rad)
         average_adv.append(best_rad)
         average_nat.append(nat_rad)
     average_nat = np.array(average_nat)
