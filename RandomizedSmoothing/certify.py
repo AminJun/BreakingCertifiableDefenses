@@ -5,8 +5,8 @@ from architectures import get_architecture
 from core import Smooth
 from utils.log import j_print, j_header
 from utils.visualize import FigureSaver
-from .attack import SmoothAttack
-from .datasets import get_dataset, DATASETS, get_num_classes
+from RandomizedSmoothing.attack import SmoothAttack
+from RandomizedSmoothing.datasets import get_dataset, DATASETS, get_num_classes
 from args import Args
 
 
