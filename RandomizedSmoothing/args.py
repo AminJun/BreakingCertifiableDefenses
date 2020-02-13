@@ -30,7 +30,7 @@ class Args:
         parser.add_argument('--N', type=int, default=100000, help='number of samples to use')
 
         parser.add_argument('-n', '--steps', default=300, type=int, help='#PGD steps')
-        parser.add_argument('-p', '--print_stats', type=str2bool, default=True,
+        parser.add_argument('-p', '--print_stats', type=str2bool, default=False,
                             help='Do you want to see stats during the attack')
 
         parser.add_argument('-l', '--lr', type=float, default=0.1, help='Learning rate for attack')
