@@ -1,5 +1,5 @@
 import argparse
-from .datasets import DATASETS
+from datasets import DATASETS
 
 
 def str2bool(v):
@@ -38,6 +38,8 @@ class Args:
         parser.add_argument('-t', '--tv_lam', type=float, default=0.3, help='TV-Lambda')
         parser.add_argument('-e', '--ch_lam', type=float, default=1.0, help='Channels Lambda')
         parser.add_argument('-s', '--dissim_lam', type=float, default=0.5, help='Sim Lambda')
+
+        parser.add_argument('-x', '--experiment', type=str, default='None', help='If you want to put a hint in the filenames use this arg')
         return parser
 
     def get_args(self):

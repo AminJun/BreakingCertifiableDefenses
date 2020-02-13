@@ -22,7 +22,7 @@ class SmoothAttack:
         copy_size = (batch, 1, 1, 1)
         x_batch = x.repeat(copy_size).cuda()
         x_batch = x_batch + torch.randn_like(x_batch).cuda() * eps
-        y = torch.Tensor([y]).cuda().repeat((batch,))
+        y = torch.LongTensor([y]).cuda().repeat((batch,))
 
         if print_stats:
             j_header('step', 'acc', 'loss', 'cls', 'tv', 'col', 'dissim')
