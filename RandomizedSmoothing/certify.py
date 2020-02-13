@@ -42,9 +42,11 @@ def main():
         best_target = -1
 
         for target in targets:
-            adv_x = attacker.perturb(x=first_x, y=target, eps=args.sigma, total_steps=args.steps,
-                                     duplicate_rgb=args.duplicate_rgb, init_tv_lam=args.tv_lam, reg_lam=args.c_lam,
-                                     sim_lam=args.s_lam, batch_size=400)
+            adv_x = attacker.perturb(x=first_x, y=target, eps=args.sigma, steps=args.steps,
+                                     duplicate_rgb=args.duplicate_rgb, tv_lam=args.tv_lam, ch_lam=args.c_lam,
+                                     dissim_lam=args.s_lam, batch=400)
+            # If you want to do wasserstein attack, uncomment the following and change the attacker to wasserstein
+            # adv_x = attacker.perturb(x=first_x, y=target, eps=args.sigma, steps=args.steps, batch=400)
             adv_pred, adv_rad = smoothed_classifier.certify(adv_x, args.N0, 2 * args.N0, args.alpha, args.batch)
             adv_suc = (adv_pred != label) and (adv_pred != -1) and (nat_pred != -1)
             adv_rad = adv_x if adv_suc else -adv_rad
