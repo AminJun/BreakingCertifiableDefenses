@@ -48,7 +48,7 @@ def main():
             # adv_x = attacker.perturb(x=first_x, y=target, eps=args.sigma, steps=args.steps, batch=args.batch)
             adv_pred, adv_rad = smoothed_classifier.certify(adv_x, args.N0, 2 * args.N0, args.alpha, args.batch)
             adv_suc = (adv_pred != label) and (adv_pred != -1) and (nat_pred != -1)
-            adv_rad = adv_x if adv_suc else -adv_rad
+            adv_rad = adv_rad if adv_suc else -adv_rad
 
             if adv_rad > best_rad:
                 best_rad = adv_rad
