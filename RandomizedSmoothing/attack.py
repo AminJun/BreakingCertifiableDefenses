@@ -10,7 +10,7 @@ class SmoothAttack:
         self.classifier = classifier
         self._loss = torch.nn.CrossEntropyLoss(reduction='mean').cuda()
 
-    def perturb(self, x: torch.Tensor, y: int, eps: float = 0.5, batch: int = 400, steps: int = 300,
+    def perturb(self, x: torch.Tensor, y: int, sigma: float = 0.5, batch: int = 400, steps: int = 300,
                 duplicate_rgb: bool = False, lr: float = 0.1, tv_lam: float = 0.1, ch_lam: float = 20.0,
                 dissim_lam: float = 10.0, print_stats: bool = False, **_) -> torch.Tensor:
         print('Ignored args are: ', _)
@@ -21,7 +21,7 @@ class SmoothAttack:
 
         copy_size = (batch, 1, 1, 1)
         x_batch = x.repeat(copy_size).cuda()
-        x_batch = x_batch + torch.randn_like(x_batch).cuda() * eps
+        x_batch = x_batch + torch.randn_like(x_batch).cuda() * sigma
         y = torch.LongTensor([y]).cuda().repeat((batch,))
 
         if print_stats:
