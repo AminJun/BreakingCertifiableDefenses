@@ -1,27 +1,23 @@
 #!/bin/bash
 #Uskerim
 
-mkdir -p -- "output"
+mkdir -p -- "outputs"
 
-#dataset="imagenet"
 dataset="imagenet"
-freq="1000"
-steps="300"
-noise="0.25"
-duplicate="True"
-tv_lam="0.3"
-c_lam="20.0"
-s_lam="5.0"
-batch="1"
-export IMAGENET_DIR="/scratch0/aminjun/ImageNet/"
-#export IMAGENET_DIR="/home/alishafahi/datasets/ImageNet/"
-if [ "${dataset}" == "cifar10" ] ; then
-    arch="resnet110"
-else
-    arch="resnet50"
-fi
- 
-job_name="`date`:${data_set}_${noise}_${tv_lam}_${c_lam}_${steps}_${batch}_${s_lam}"
-CUDA_VISIBLE_DEVICES=0,1 python  "code/certify.py" "${dataset}" "models/${dataset}/${arch}/noise_${noise}/checkpoint.pth.tar" "${noise}" \
-        "output/${job_name}" --skip "${freq}" -s "${steps}" -d "${duplicate}" --tv_lam "${tv_lam}" \
-	 --c_lam "${c_lam}" --batch "${batch}" --s_lam "${s_lam}"  #> "${job_name}.txt" &
+export IMAGENET_DIR="PUT Directory Address for ImageNet dataset here!"
+skip="1000"
+arch="resnet50"
+
+job_id=$(cat utils/exp_stat.db | tr -d '\n ')
+gpus="0,1,2,3"
+
+
+for noise in '0.25', '0.5', '1.0'; do
+    job_name="${job_id}_${noise}_`date`.txt"
+    CUDA_VISIBLE_DEVICES="${gpus}" python  "certify.py" --dataset "${dataset}" \
+        --checkpoint "models/${dataset}/${arch}/noise_${noise}/checkpoint.pth.tar" \
+        --sigma "${noise}"  --skip "${skip}"  #> "outputs/${job_name}.txt" &
+    real_id="$!"
+    wait "${real_id}"
+
+done
