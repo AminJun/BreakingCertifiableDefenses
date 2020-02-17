@@ -36,4 +36,5 @@ source imagenet.sh &
 ### Wasserstein Examples via Projected Sinkhorn
 Note that by changing the attacker class in the certify.py, by simply changing the class of attacker from `SmoothedAttack` to `Wasserstein` one could compare the resutls of the `Shadow attack` to `Wasserstein Projected Sinkhorn` from [Wasserstein Examples via Projected Sinkhorn](https://arxiv.org/abs/1902.07906) paper. 
 
-### 
+### Provably Robust Deep Learning via Adversarially Trained Smoothed Classifiers
+To test the robustness of the [Adversarially Trained Smoothed Classifiers](https://arxiv.org/pdf/1906.04584.pdf) against the `Shadow attack`, simply download their pretrained models from their [official implementation](https://drive.google.com/file/d/1GH7OeKUzOGiouKhendC-501pLYNRvU8c/view) and pass the address to the checkpoints to the `certify.py`. 
